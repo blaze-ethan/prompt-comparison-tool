@@ -15,8 +15,8 @@ if 'responses' not in st.session_state:
 
 # Function to get API keys
 def get_api_keys():
-    openai_key = os.getenv("OPENAI_API_KEY")
-    anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+    openai_key = st.secrets.get("OPENAI_API_KEY")
+    anthropic_key = st.secrets.get("ANTHROPIC_API_KEY")
     
     if not openai_key:
         openai_key = st.text_input("Enter your OpenAI API key", type="password")
